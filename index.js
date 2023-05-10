@@ -28,12 +28,13 @@ app.use(function(req, res, next) {
 });
 
 //import routes
-import {userRoute, powerRoute, customerRoute} from './routes/index.js';
+import {userRoute, powerRoute, customerRoute, settingRoute} from './routes/index.js';
 
 //routes
 app.use('/user', userRoute);
 app.use('/power', powerRoute);
 app.use('/customers', customerRoute);
+app.use('/settings', settingRoute )
 
 app.get('/', (req, res) => {
   res.send('Welcome to Mybudy!')
