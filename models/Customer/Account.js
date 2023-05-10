@@ -7,10 +7,11 @@ const AccountSchema = new Schema({
     ApprovedSum: { type: String},
     daliyRate: { type: String},
     Accumulation: { type: String},
-    AccountId: { type: String},
+    customerId: { type: String},
     maturityDate: { type: String},
     status: { type: String, default: "inactive"},
     createdDate: { type: Date, default: Date.now },
+    balance: {type: String}
 })
 // Create Model
 const Account = mongoose.model('Account', AccountSchema);

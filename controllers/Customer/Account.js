@@ -27,9 +27,9 @@ export const getAllAccount =  async (req, res) =>{
 // get account by id 
 
 export const  getAllAccountById = async (req, res) =>{
-    const {accountId} = req.body
+    const {customerId} = req.body
    try{
-    const account = await Account.find({AccountId : accountId})
+    const account = await Account.find({customerId : customerId})
     res.status(200).json({data: account, msg: "List of Accounts by ID"})
    }catch(error){
     res.status(500).json({error:error.message});
