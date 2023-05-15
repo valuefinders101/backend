@@ -1,8 +1,9 @@
 import bcrypt from "bcrypt";
 import nodemailer from "nodemailer";
-import User from "../models/User.js";
+import User from "../models/User/User.js";
 import fetch from "node-fetch";
 import { api_key } from "../config/index.js";
+
 
 //hash password
 export const hashPassword = async (password) => {

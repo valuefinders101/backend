@@ -1,7 +1,7 @@
 {
   "name": "valuefinder",
   "version": "1.0.0",
-  "description": "borrowlite is a platform that allows borrow electricity and pay back later ",
+  "description": " ",
   "main": "nodemon index.js",
   "engines": {
     "node": "18.x"
@@ -20,6 +20,7 @@
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.6.1",
     "node-fetch": "^3.2.10",
     "nodemailer": "^6.8.0",
