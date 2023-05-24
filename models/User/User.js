@@ -8,6 +8,7 @@ const UserSchema = new Schema({
     password: { type: String },
     userType: { type: String},
     phoneNumber: { type: String},
+    address: { type: String},
     status: { type: String, default: 'active' },
     timestamps: {
         createdAt: {

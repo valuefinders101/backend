@@ -28,13 +28,14 @@ app.use(function(req, res, next) {
 });
 
 //import routes
-import {userRoute} from './routes/index.js';
+import {userRoute, postRoute} from './routes/index.js';
 
 //routes
 app.use('/user', userRoute);
+app.use('/post', postRoute)
 
 app.get('/', (req, res) => {
-  res.send('Welcome to value finder')
+  res.send('Welcome to value finder, find jobs here ')
 })
 
 //connect to mongodb
