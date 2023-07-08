@@ -12,4 +12,10 @@ router.post("/api/v1/login", Login);
 // get current user info
 router.get("/api/v1/current-user", ValidateToken, CurrentUser)
 
+//get Username and roomname from formm and pass it to room 
+//router.get("api/v1/room", Room); 
+
+
+
+
 export { router as userRoute };
