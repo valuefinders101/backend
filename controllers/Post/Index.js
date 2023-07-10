@@ -1,6 +1,5 @@
 import express from 'express'
 import Post from '../../models/Post/Index.js'
-
 export const createPost = async (req, res, next)=>{
     console.log("alll", req.body)
     const user_id = req.user._id
@@ -29,4 +28,5 @@ export const getPost = async (req, res, next)=>{
     const allPost = await Post.find();
     return res.status(200).json({msg: "All Post", data: allPost}) 
 }
+
 
