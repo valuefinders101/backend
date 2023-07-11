@@ -47,7 +47,7 @@ export const updatePost = async(req, res) => {
        if(check === undefined){
         newme.push(newContact)
         findPost.save()
-        res.status(201).send({ msg: "Application Submitted"})
+        res.status(409).send({ msg: "Application Submitted"})
        }else{
         res.status(201).send({msg : "You have applied for this Job already"})
        }
