@@ -22,32 +22,8 @@ const port = 5000
 const app = express();
 
 
-const postmessage = postMessage;  
 
 const httpServer = createServer(app)
-// const io = new Server(httpServer, {
-//   cors: {
-//     origin: '*'
-//   }
-// }) 
-
-//even to show a user connected to our server via any view engine
-// io.on('connection', (socket) => {
-//   console.log(socket.id,'User connected');
-
-//     socket.on('message', (postmessage) => {
-//       socket.broadcast.emit('message', postmessage);
-//   }); 
-
-//     socket.on('disconnect',() => {
-//       console.log(socket.id, 'is disconnected!!!')
-//     }) 
-
-//     socket.emit('json',(message) => {
-//       console.log(message); 
-//     })
-// }); 
-
 
 
 app.use(bodyParser.json()); 
@@ -83,20 +59,28 @@ app.use('/contract', contractRoute);
 
 
 
-app.get('/chat', (req, res) => {
-  res.render('chat'); 
+app.get('/', (req, res) => {
+  res.send('Welcome to value finders, find jobs here ')
 })
 
-app.get('/', (req, res) => {
-  res.send('Welcome to value finder, find jobs here ')
-})
+
+
+//connect to mongodb
+// mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => console.log('Connected to MongoDB...'))
+//     .catch(err => console.error('Could not connect to MongoDB...', err));
+
+// httpServer.listen(process.env.PORT || port, () => {
+//     console.log(`listening at http://localhost:${port}`)
+//     }
+// )
 
 //connect to mongodb
 mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.error('Could not connect to MongoDB...', err));
+    .catch(err => console.error('Could not connect to MongoDB...'));
 
-httpServer.listen(process.env.PORT || port, () => {
-    console.log(`Borrowlite listening at http://localhost:${port}`)
+app.listen(port, () => {
+    console.log(`Valuefinders listening at http://localhost:${port}`)
     }
 )

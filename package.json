@@ -2,7 +2,7 @@
   "name": "valuefinder",
   "version": "1.0.0",
   "description": " ",
-  "main": "nodemon index.js",
+  "main": "node index.js",
   "engines": {
     "node": "18.x"
   },
