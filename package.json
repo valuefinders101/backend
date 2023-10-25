@@ -2,13 +2,13 @@
   "name": "valuefinder",
   "version": "1.0.0",
   "description": " ",
-  "main": "node index.js",
+  "main": "index.js",
   "engines": {
     "node": "18.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js ",
+    "start": "index.js ",
     "dev": "nodemon index.js ",
     "vercel-build": "echo hello"
   },
