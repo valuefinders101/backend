@@ -14,7 +14,7 @@ import { createServer } from 'http';
 
 
 
-const port = 5000 
+const port = 3000 
 const app = express();
 const httpServer = createServer(app)
 
