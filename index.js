@@ -9,20 +9,13 @@ import cors from 'cors';
 import { createServer } from 'http';
 
 
-import { postMessage } from './controllers/User/ChatRoom.js';
-import { ChatMessages } from './models/User/chatmessages.js';
+// import { postMessage } from './controllers/User/ChatRoom.js';
+// import { ChatMessages } from './models/User/chatmessages.js';
 
 
 
 const port = 5000 
-
-
-
-
 const app = express();
-
-
-
 const httpServer = createServer(app)
 
 
