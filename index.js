@@ -39,7 +39,7 @@ app.use(function(req, res, next) {
 });
 
 //import routes
-import {userRoute, postRoute, contractRoute} from './routes/index.js';
+import {userRoute, postRoute} from './routes/index.js';
 
 
 //routes
@@ -47,7 +47,7 @@ import {userRoute, postRoute, contractRoute} from './routes/index.js';
 app.use('/user', userRoute);
 app.use('/post', postRoute); 
 // app.use('/room', roomRoute);  
-app.use('/contract', contractRoute);
+// app.use('/contract', contractRoute);
 
 
 
