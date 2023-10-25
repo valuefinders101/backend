@@ -9,7 +9,6 @@ import pkg from 'jsonwebtoken';
 
 
 export const Login = async (req, res) => {
-
     const jwt  = pkg;
     const { email, password} = req.body;
     try {

@@ -5,6 +5,32 @@ import fetch from "node-fetch";
 import { api_key } from "../config/index.js";
 
 
+
+
+export const sendSms = async (req, res) =>{
+
+    console.log("me",req.body)
+
+
+    const  number = req.body.phoneNumber;
+    const body = req.body.msg;
+    const from = "Valuefinder";
+    const api_token = "Nf1cjArMemxQjbu7O5uby6e8GPI4Gl4z9CoByBKzJJgRabb5d3VbQgAQCubU";
+
+    var url = `https://www.bulksmsnigeria.com/api/v1/sms/create?api_token=${api_token}&from=${from}&to=${number}&body=${body}&dnd=2`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+    console.log(data)
+    })
+    .catch(err => {
+        console.log(err);
+    })
+   
+
+}
+
+
 //hash password
 export const hashPassword = async (password) => {
     const salt = await bcrypt.genSalt(10);

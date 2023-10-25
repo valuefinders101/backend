@@ -10,6 +10,15 @@ const UserSchema = new Schema({
     phoneNumber: { type: String},
     address: { type: String},
     status: { type: String, default: 'active' },
+    paymentStatus: {type: String, default: 'Verified'},
+    balance:{ type: Number, default: 0},
+    specialty:{type: String},
+    onlinePortfolio:{type: String},
+    salary:{type: String},
+    state:{type: String},
+    address: {type: String},
+    bio:{type: String},
+    accountDetails: {type: Array},
     timestamps: {
         createdAt: {
             type: Date,
@@ -21,7 +30,6 @@ const UserSchema = new Schema({
             default: Date.now
         }
     }
-
 })
 
 
