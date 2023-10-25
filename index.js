@@ -46,15 +46,14 @@ app.use(function(req, res, next) {
 });
 
 //import routes
-import {userRoute, postRoute, roomRoute, chatMessagesRoutes, contractRoute} from './routes/index.js';
+import {userRoute, postRoute, contractRoute} from './routes/index.js';
 
 
 //routes
 
 app.use('/user', userRoute);
 app.use('/post', postRoute); 
-app.use('/room', roomRoute); 
-app.use('/messages', chatMessagesRoutes); 
+// app.use('/room', roomRoute);  
 app.use('/contract', contractRoute);
 
 

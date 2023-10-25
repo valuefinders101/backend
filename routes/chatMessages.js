@@ -1,18 +1,18 @@
-import  express from "express";
+// import  express from "express";
 
-const router = express.Router();
+// const router = express.Router();
 
-import { postMessages } from "../controllers/User/chatMessages.js"; 
-
-
-
-router.post("/api/v1/postnewmessages/", postMessages);
+// import { postMessages } from "../controllers/User/chatMessages.js"; 
 
 
+
+// router.post("/api/v1/postnewmessages/", postMessages);
 
 
 
 
 
 
-export { router as chatMessagesRoutes }; 
+
+
+// export { router as chatMessagesRoutes }; 
