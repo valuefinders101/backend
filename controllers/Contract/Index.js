@@ -45,140 +45,140 @@ export const createContract = async (req, res, next)=>{
 
 
 
-    // export const getMycontracts = async(req, res) =>{
-    //     const user_id = req.user._id; 
-    //         console.log
-    //         try {
-    //             const post = await Contract.find({freelancerId:user_id});
-    //             if (!post) {
-    //               return res.status(404).send({msg:'contract not found'});
-    //             }
-    //             res.send({msg:'all contracts by user', data:post});
-    //           } catch (err) {
-    //             console.error(err);
-    //             res.status(500).send({msg:'Internal server error'});
-    //           }
-    //     }
+    export const getMycontracts = async(req, res) =>{
+        const user_id = req.user._id; 
+            console.log
+            try {
+                const post = await Contract.find({freelancerId:user_id});
+                if (!post) {
+                  return res.status(404).send({msg:'contract not found'});
+                }
+                res.send({msg:'all contracts by user', data:post});
+              } catch (err) {
+                console.error(err);
+                res.status(500).send({msg:'Internal server error'});
+              }
+        }
 
 
 
-    //     export const updateContract = async(req, res) =>{
-    //       try {
-    //       const id = req.body._id
-    //       const freelancerId = req.body.freelancerId
-    //       const findPost = await Contract.findOne({ _id: id }); 
-    //       if(!findPost ){
-    //           res.status(409).send("job does not exist")
-    //       }else{
-    //           //update Post with req.body
-    //           let updatedData= {...req.body};
-    //           //update Post 
-    //           const postid = req.body.postid
+        export const updateContract = async(req, res) =>{
+          try {
+          const id = req.body._id
+          const freelancerId = req.body.freelancerId
+          const findPost = await Contract.findOne({ _id: id }); 
+          if(!findPost ){
+              res.status(409).send("job does not exist")
+          }else{
+              //update Post with req.body
+              let updatedData= {...req.body};
+              //update Post 
+              const postid = req.body.postid
               
-    //          const updatepost =  await  Post.updateOne({_id:postid},{contractState: req.body.contractState, contractid:id, freelancerId:freelancerId},{new:true})
-    //          const updatecontract =  await  Contract.findByIdAndUpdate(id,{...updatedData},{new:true})
+             const updatepost =  await  Post.updateOne({_id:postid},{contractState: req.body.contractState, contractid:id, freelancerId:freelancerId},{new:true})
+             const updatecontract =  await  Contract.findByIdAndUpdate(id,{...updatedData},{new:true})
              
-    //          if(updatecontract &&  updatepost){
-    //           res.status(201).send( {msg:"Job post has been Updated"} )
-    //          }else{
-    //           res.status(406).send({msg:"something went wrong"})
-    //          }
+             if(updatecontract &&  updatepost){
+              res.status(201).send( {msg:"Job post has been Updated"} )
+             }else{
+              res.status(406).send({msg:"something went wrong"})
+             }
       
-    //       }
+          }
       
               
-    //       }catch(error){
-    //           console.log("Error", error)
-    //       }
-    //   }
+          }catch(error){
+              console.log("Error", error)
+          }
+      }
 
-    //   export const waitingApproval = async(req, res) =>{
-    //     try {
-    //     const id = req.body._id
-    //     const freelancerId = req.body.freelancerId
-    //     const findPost = await Contract.findOne({ _id: id }); 
-    //     if(!findPost ){
-    //         res.status(409).send("job does not exist")
-    //     }else{
-    //         //update Post with req.body
-    //         let updatedData= {...req.body};
-    //         //update Post 
-    //         const postid = req.body.postid
+      export const waitingApproval = async(req, res) =>{
+        try {
+        const id = req.body._id
+        const freelancerId = req.body.freelancerId
+        const findPost = await Contract.findOne({ _id: id }); 
+        if(!findPost ){
+            res.status(409).send("job does not exist")
+        }else{
+            //update Post with req.body
+            let updatedData= {...req.body};
+            //update Post 
+            const postid = req.body.postid
             
-    //        const updatepost =  await  Post.updateOne({_id:postid},{contractState: 'approval',freelancerId:freelancerId},{new:true})
-    //        const updatecontract =  await  Contract.findByIdAndUpdate(id,{...updatedData},{new:true})
+           const updatepost =  await  Post.updateOne({_id:postid},{contractState: 'approval',freelancerId:freelancerId},{new:true})
+           const updatecontract =  await  Contract.findByIdAndUpdate(id,{...updatedData},{new:true})
            
-    //        if(updatecontract &&  updatepost){
-    //         res.status(201).send( {msg:"Job post has been Updated"} )
-    //        }else{
-    //         res.status(406).send({msg:"something went wrong"})
-    //        }
+           if(updatecontract &&  updatepost){
+            res.status(201).send( {msg:"Job post has been Updated"} )
+           }else{
+            res.status(406).send({msg:"something went wrong"})
+           }
     
-    //     }
+        }
     
             
-    //     }catch(error){
-    //         console.log("Error", error)
-    //     }
-    // }
+        }catch(error){
+            console.log("Error", error)
+        }
+    }
 
 
-    // export const completed = async(req, res) =>{
-    //     try {
-    //     const id = req.body.contractid
-    //     console.log("id", req.body)
-    //     const findPost = await Contract.findOne({ _id: id }); 
-    //     if(!findPost ){
-    //         res.status(409).send("job does not exist")
-    //     }else{
-    //         //update Post with req.body
-    //         let updatedData= {...req.body};
-    //         //update Post 
-    //         const postid = req.body._id
-    //         console.log("postid", postid)
-    //         const findUser = await User.findOne({_id:req.body.freelancerId})
-    //         console.log("user", findUser)
-    //         const percent = parseInt(req.body.salary) * 15 / 100
-    //         const amountpaid = parseInt(req.body.salary) - parseInt(percent)
-    //         console.log("userba",findUser.balance, amountpaid)
-    //         findUser.balance +=amountpaid
-    //         const userUpdateBalance =await User.findByIdAndUpdate(req.body.freelancerId ,{$set:{
-    //             balance : findUser.balance}},{ new: true })
-    //             userUpdateBalance
-    //             console.log('after', userUpdateBalance.balance)
+    export const completed = async(req, res) =>{
+        try {
+        const id = req.body.contractid
+        console.log("id", req.body)
+        const findPost = await Contract.findOne({ _id: id }); 
+        if(!findPost ){
+            res.status(409).send("job does not exist")
+        }else{
+            //update Post with req.body
+            let updatedData= {...req.body};
+            //update Post 
+            const postid = req.body._id
+            console.log("postid", postid)
+            const findUser = await User.findOne({_id:req.body.freelancerId})
+            console.log("user", findUser)
+            const percent = parseInt(req.body.salary) * 15 / 100
+            const amountpaid = parseInt(req.body.salary) - parseInt(percent)
+            console.log("userba",findUser.balance, amountpaid)
+            findUser.balance +=amountpaid
+            const userUpdateBalance =await User.findByIdAndUpdate(req.body.freelancerId ,{$set:{
+                balance : findUser.balance}},{ new: true })
+                userUpdateBalance
+                console.log('after', userUpdateBalance.balance)
             
 
             
-    //        const updatepost =  await  Post.updateOne({_id:postid},{contractState: 'completed'},{new:true})
-    //        const updatecontract =  await  Contract.updateOne({_id:id},{contractState: 'completed'},{new:true})
+           const updatepost =  await  Post.updateOne({_id:postid},{contractState: 'completed'},{new:true})
+           const updatecontract =  await  Contract.updateOne({_id:id},{contractState: 'completed'},{new:true})
            
-    //        if(updatecontract &&  updatepost){
-    //         res.status(201).send( {msg:"Job post has been Updated"} )
-    //        }else{
-    //         res.status(406).send({msg:"something went wrong"})
-    //        }
+           if(updatecontract &&  updatepost){
+            res.status(201).send( {msg:"Job post has been Updated"} )
+           }else{
+            res.status(406).send({msg:"something went wrong"})
+           }
     
-    //     }
-    //     }catch(error){
-    //         console.log("Error", error)
-    //     }
-    // }
+        }
+        }catch(error){
+            console.log("Error", error)
+        }
+    }
 
 
 
 
-    // export const Banklist = async(req, res) =>{
-    //   var options = {
-    //     'method': 'GET',
-    //     'url': 'https://api.flutterwave.com/v3/banks/NG',
-    //     'headers': {
-    //       'Authorization': 'Bearer FLWSECK_TEST-3175c3ba2dbe32421117efa89716050f-X'
-    //     }
-    //   };
-    //   request(options, function (error, response) {
-    //     if (error) throw new Error(error);
-    //     res.send(response.body);
-    //    // console.log(response.body);
-    //   });
+    export const Banklist = async(req, res) =>{
+      var options = {
+        'method': 'GET',
+        'url': 'https://api.flutterwave.com/v3/banks/NG',
+        'headers': {
+          'Authorization': 'Bearer FLWSECK_TEST-3175c3ba2dbe32421117efa89716050f-X'
+        }
+      };
+      request(options, function (error, response) {
+        if (error) throw new Error(error);
+        res.send(response.body);
+       // console.log(response.body);
+      });
           
-    // }
+    }
