@@ -27,9 +27,9 @@ export const createPost = async (req, res, next)=>{
     console.log("here", Jobs)
     try {
         const postCreated = await Jobs.save()
-        res.status(201).json({msg:"Job post was ceated successfully  ",postCreated})
+        res.status(201).send({msg:"Job post was ceated successfully  ",postCreated})
         } catch (error) {
-            res.status(400).json(error)
+            res.status(400).send(error)
         }
     }
 
