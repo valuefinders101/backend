@@ -23,12 +23,12 @@ app.use(function(req, res, next) {
 
 //import routes
 import { userRoute, postRoute, 
-  // contractRoute 
+  contractRoute 
 } from './routes/index.js';
 //routes
 app.use('/user', userRoute);
 app.use('/post', postRoute);  
-// app.use('/contract', contractRoute);
+app.use('/contract', contractRoute);
 
 
 
