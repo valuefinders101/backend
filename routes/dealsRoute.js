@@ -14,19 +14,12 @@ import {
 import { ValidateToken } from "../middleware/ValidateToken.js";
 
 
-//create user
-// router.post("/api/v1/register", Signup);
-// //login user
-// router.post("/api/v1/login", Login);
-// // get current user info
-// router.get("/api/v1/current-user", ValidateToken, CurrentUser)
-// router.post("/api/v1/update-current-user", ValidateToken, UpdateCurrentUser)
-// router.post("/api/v1/add-account", ValidateToken, addAcount)
-// router.post("/api/v1/sendsms", ValidateToken, sendSms)
-// router.post("/api/v1/verify-account", ValidateToken, verifyBankAccount)
-
-//get Username and roomname from formm and pass it to room 
-//router.get("api/v1/room", Room); 
+router.post("/api/v1/sendContractRequest", ValidateToken, createContract);
+router.get("/api/v1/allcontracts", ValidateToken, getMycontracts)
+router.post("/api/v1/updateContract", ValidateToken, updateContract);
+router.post("/api/v1/approvalRequest", ValidateToken, waitingApproval);
+router.post("/api/v1/completed", ValidateToken, completed);
+router.get("/api/v1/banklist", ValidateToken, Banklist)
 
 
 
