@@ -1,10 +1,17 @@
 import  express from "express";
 const router = express.Router();
-import { Signup } from "../controllers/User/Signup.js";
-import { Login } from "../controllers/User/Login.js";
-import { CurrentUser, UpdateCurrentUser, addAcount, verifyBankAccount } from "../controllers/User/User.js"
+
+
+import { 
+    createContract,
+     getMycontracts,
+      updateContract,
+       waitingApproval,
+        completed,
+         Banklist
+        
+       } from "../controllers/Contract/Index.js";
 import { ValidateToken } from "../middleware/ValidateToken.js";
-import { sendSms } from "../utils/Index.js";
 
 
 //create user
