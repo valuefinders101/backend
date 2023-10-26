@@ -22,13 +22,13 @@ app.use(function(req, res, next) {
 });
 
 //import routes
-import { userRoute, postRoute, 
-  contractRoute 
+import { userRoute, postRoute, dealsRoute
 } from './routes/index.js';
 //routes
 app.use('/user', userRoute);
-app.use('/post', postRoute);  
-app.use('/contract', contractRoute);
+app.use('/post', postRoute); 
+app.use('/contract', dealsRoute);
+// app.use('/contract', contractRoute);
 
 
 

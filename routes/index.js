@@ -1,4 +1,5 @@
 export * from './userRoute.js';
 export * from './postRoute.js';
-export * from './contractRoute.js'; 
+export * from './dealsRoute.js';
+// export * from './contractRoute.js'; 
 
