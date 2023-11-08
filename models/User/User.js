@@ -19,6 +19,7 @@ const UserSchema = new Schema({
     address: {type: String},
     bio:{type: String},
     accountDetails: {type: Array},
+    imageUrl: {type: String},
     timestamps: {
         createdAt: {
             type: Date,
