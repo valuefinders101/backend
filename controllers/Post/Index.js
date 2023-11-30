@@ -41,7 +41,7 @@ export const getPost = async (req, res, next)=>{
 export const updatePost = async(req, res) => {
 
     console.log("came thro", req.body)
-    const id = req.body.data
+    const id = req.body.id
     const user_id = req.user._id; 
     const findPost = await Post.findOne({ _id: id }); 
     const newContact = {
@@ -49,7 +49,14 @@ export const updatePost = async(req, res) => {
         firstName: req.user.firstName, 
         lastName: req.user.lastName,
         email: req.user.email,
-        phoneNumber:req.user.phoneNumber
+        phoneNumber:req.user.phoneNumber,
+        address: req.body.address,
+        bio:req.body.bio,
+        salary:req.body.salary,
+        specialty:req.body.specialty,
+        state:req.body.state,
+        imageUrl:req.body.imageUrl
+
        }
     if(findPost){
        const newme = findPost.numberOfApplicants

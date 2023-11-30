@@ -64,7 +64,6 @@ const response = await flw.Misc.verify_Account(payload);
 console.log("res here",response)
 res.send(response)
 
-
 }
 
 
