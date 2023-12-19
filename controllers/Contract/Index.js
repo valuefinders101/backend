@@ -2,6 +2,13 @@ import Contract from "../../models/Contract/Index.js";
 import Post from "../../models/Post/Index.js";
 import User from '../../models/User/User.js';
 import request from 'request';
+import https  from 'https'
+import axios from 'axios';
+
+
+import Paystack from 'paystack';
+
+const paystack = Paystack('sk_live_9f7c2489c52cc8a9a2432ec8496953667fd7f8a2');
 
 
 
@@ -167,18 +174,21 @@ export const createContract = async (req, res, next)=>{
 
 
 
-    export const Banklist = async(req, res) =>{
-      var options = {
-        'method': 'GET',
-        'url': 'https://api.flutterwave.com/v3/banks/NG',
-        'headers': {
-          'Authorization': 'Bearer FLWSECK_TEST-3175c3ba2dbe32421117efa89716050f-X'
-        }
-      };
-      request(options, function (error, response) {
+export const Banklist = async(req, res) =>{
+const options = {
+    hostname: 'api.paystack.co',
+    port: 443,
+    uri: 'https://api.paystack.co/bank?country=nigeria',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer sk_live_9f7c2489c52cc8a9a2432ec8496953667fd7f8a2'
+    },
+    
+  }
+
+  request(options, function (error, response) {
         if (error) throw new Error(error);
-        res.send(response.body);
-       // console.log(response.body);
-      });
-          
-    }
+       res.send(response.body);
+       
+      });          
+}
